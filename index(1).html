@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".btn2").click(function(){
+    $(".login-box").slideUp();
+  });
+  $(".AddCont").click(function(){
+    $(".login-box").slideDown();
+  });
+});
+</script>
+<style>
     .AddCont button {
       height: 50px;
       width: 580px;
       position: relative;
       display: inline-block;
-      padding: 10px 20px;
       color: #03e9f4;
       font-size: 24px;
       text-decoration: none;
@@ -130,13 +139,12 @@
       left: 50%;
       width: 580px;
       padding: 40px;
-      margin-left: 5px;
+      margin-left: 0px; 
       transform: translate(-50%, -50%);
       background: rgba(0, 0, 0, .5);
-      margin-top: 0px;
+      margin-top: 1px;
       box-sizing: border-box;
       box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
-      border-radius: 10px;
     }
 
     .login-box h2 {
@@ -308,10 +316,11 @@
     }
   </style>
 </head>
-
-
 <body>
-  <div class="AddCont">
+
+
+
+<div class="AddCont">
     <button>
       <span></span>
       <span></span>
@@ -321,7 +330,7 @@
     </button>
   </div>
   <div class="login-box">
-    <h2>Run container</h2>
+    <h2>Run container</h2><button class="btn2">x</button>
     <form>
       <div class="user-box">
         <input id="container" type="text" name="container" required="">
@@ -359,14 +368,5 @@
   </div>
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-  const para = document.createElement("p");
-  const node = document.createTextNode("This is new.");
-  para.appendChild(node);
-  const element = document.getElementById("contlist");
-  element.appendChild(para);
-</script>
-
 </body>
-
 </html>

@@ -13,36 +13,32 @@ $(document).ready(function(){
 });
 </script>
 <style>
-table, th, td {
-  border:1px solid black;
-}
-table{
-    table-layout:fixed;
-    overflow:hidden; 
-    white-space: nowrap; 
-}
-</style>
-<style>
+    .ContListAddBox{
+      width: 580px;
+      overflow: hidden;
+      background-color: Transparent;
+      background-repeat: no-repeat;
+      border: solid;
+      cursor: pointer;
+      outline: none;
+      margin-bottom: 1000px;
+    }
+
+
     .AddCont button {
       height: 50px;
-      width: 580px;
+      width: 100%;
       position: relative;
-      display: inline-block;
+      display: block;
       color: #03e9f4;
-      font-size: 24px;
       text-decoration: none;
       text-transform: uppercase;
       overflow: hidden;
       transition: .5s;
-      margin-top: 40px;
-      margin-left: 95px;
-      margin-bottom: 100px;
-      letter-spacing: 4px;
       background-color: Transparent;
       background-repeat: no-repeat;
       border: none;
       cursor: pointer;
-      overflow: hidden;
       outline: none;
     }
 
@@ -147,15 +143,13 @@ table{
     .login-box {
       position: relative;
       display: none;
-      width: 580px;
-      padding: 40px;
-      top: 0%;
+      height: 540px;
+      width: 100%;
       left: 50%;
-      margin-top: 3000px;
-      margin-left: 0px; 
+      margin-top: 270px;
+      padding: 40px;
       transform: translate(-50%, -50%);
       background: rgba(0, 0, 0, .5);
-      margin-top: 1px;
       box-sizing: border-box;
       box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
     }
@@ -330,9 +324,7 @@ table{
   </style>
 </head>
 <body>
-
-<table> 
-<tr><td>
+  <div class="ContListAddBox">
 <div class="AddCont">
     <button>
       <span></span>
@@ -342,18 +334,7 @@ table{
       +
     </button>
   </div>
-  </td></tr>
-  
-  <tr><td>
-    yuf
-  
-</td></tr>
-<tr><td>
-  <div id="contlist">
-  yuifdh
-  </div>
- </td></tr>
- <tr><td>
+
    <div class="login-box">
     <h2>Run container</h2><button class="btn2">x</button>
     <form>
@@ -386,7 +367,6 @@ table{
       </a>
     </form>
   </div>
- </td></tr>
-</table>
+</div>
 </body>
 </html>

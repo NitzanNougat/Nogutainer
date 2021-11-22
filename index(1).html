@@ -13,6 +13,16 @@ $(document).ready(function(){
 });
 </script>
 <style>
+table, th, td {
+  border:1px solid black;
+}
+table{
+    table-layout:fixed;
+    overflow:hidden; 
+    white-space: nowrap; 
+}
+</style>
+<style>
     .AddCont button {
       height: 50px;
       width: 580px;
@@ -26,6 +36,7 @@ $(document).ready(function(){
       transition: .5s;
       margin-top: 40px;
       margin-left: 95px;
+      margin-bottom: 100px;
       letter-spacing: 4px;
       background-color: Transparent;
       background-repeat: no-repeat;
@@ -134,11 +145,13 @@ $(document).ready(function(){
     }
 
     .login-box {
-      position: absolute;
-      top: 50%;
-      left: 50%;
+      position: relative;
+      display: none;
       width: 580px;
       padding: 40px;
+      top: 0%;
+      left: 50%;
+      margin-top: 3000px;
       margin-left: 0px; 
       transform: translate(-50%, -50%);
       background: rgba(0, 0, 0, .5);
@@ -318,8 +331,8 @@ $(document).ready(function(){
 </head>
 <body>
 
-
-
+<table> 
+<tr><td>
 <div class="AddCont">
     <button>
       <span></span>
@@ -329,7 +342,19 @@ $(document).ready(function(){
       +
     </button>
   </div>
-  <div class="login-box">
+  </td></tr>
+  
+  <tr><td>
+    yuf
+  
+</td></tr>
+<tr><td>
+  <div id="contlist">
+  yuifdh
+  </div>
+ </td></tr>
+ <tr><td>
+   <div class="login-box">
     <h2>Run container</h2><button class="btn2">x</button>
     <form>
       <div class="user-box">
@@ -361,12 +386,7 @@ $(document).ready(function(){
       </a>
     </form>
   </div>
-
-
-  <div id="contlist">
-
-  </div>
-</body>
-
+ </td></tr>
+</table>
 </body>
 </html>

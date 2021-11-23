@@ -24,7 +24,7 @@ $(document).ready(function(){
       margin-bottom: 1000px;
     }
 
-
+  
     .AddCont button {
       height: 50px;
       width: 100%;
@@ -195,8 +195,16 @@ $(document).ready(function(){
       color: #03e9f4;
       font-size: 12px;
     }
-
-    .login-box form a {
+    .login-box .btn2{
+      position: relative;
+      display: inline-block;
+      color: #ffffff;
+      background-color: Transparent;
+      border: none;
+      font-size: 13px; 
+      left: 90%;
+    }
+    .login-box form button {
       position: relative;
       display: inline-block;
       padding: 10px 20px;
@@ -207,11 +215,17 @@ $(document).ready(function(){
       overflow: hidden;
       transition: .5s;
       margin-top: 40px;
-      margin-left: 95px;
-      letter-spacing: 4px
+      left: 35%;
+      letter-spacing: 4px;
+      background-color: Transparent;
+      background-repeat: no-repeat;
+      border: none;
+      cursor: pointer;
+      overflow: hidden;
+      outline: none;
     }
 
-    .login-box a:hover {
+    .login-box button:hover {
       background: #03e9f4;
       color: #fff;
       border-radius: 5px;
@@ -221,12 +235,12 @@ $(document).ready(function(){
         0 0 100px #03e9f4;
     }
 
-    .login-box a span {
+    .login-box button span {
       position: absolute;
       display: block;
     }
 
-    .login-box a span:nth-child(1) {
+    .login-box button span:nth-child(1) {
       top: 0;
       left: -100%;
       width: 100%;
@@ -246,7 +260,7 @@ $(document).ready(function(){
       }
     }
 
-    .login-box a span:nth-child(2) {
+    .login-box button span:nth-child(2) {
       top: -100%;
       right: 0;
       width: 2px;
@@ -267,7 +281,7 @@ $(document).ready(function(){
       }
     }
 
-    .login-box a span:nth-child(3) {
+    .login-box button span:nth-child(3) {
       bottom: 0;
       right: -100%;
       width: 100%;
@@ -288,7 +302,7 @@ $(document).ready(function(){
       }
     }
 
-    .login-box a span:nth-child(4) {
+    .login-box button span:nth-child(4) {
       bottom: -100%;
       left: 0;
       width: 2px;
@@ -336,7 +350,8 @@ $(document).ready(function(){
   </div>
 
    <div class="login-box">
-    <h2>Run container</h2><button class="btn2">x</button>
+     <button class="btn2">x</button>
+    <h2>Run container</h2>
     <form>
       <div class="user-box">
         <input id="container" type="text" name="container" required="">
@@ -358,13 +373,13 @@ $(document).ready(function(){
         <input class="checkbox-box" id="privileged" type="checkbox">
         <label class="checkbox-label" for="privileged">Privileged</label>
       </div>
-      <a href="#">
+      <button>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         Create
-      </a>
+      </button>
     </form>
   </div>
 </div>

@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $(".btn2").click(function(){
-    $(".login-box").slideUp();
-  });
-  $(".AddCont").click(function(){
-    $(".login-box").slideDown();
-  });
-});
-</script>
-<style>
-    .ContListAddBox{
-      width: 580px;
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".btn2").click(function () {
+        $(".RunCont-box").slideUp();
+      });
+      $(".AddCont").click(function () {
+        $(".RunCont-box").slideDown();
+      });
+    });
+  </script>
+  <style>
+    .MainWindow {
       overflow: hidden;
-      background-color: Transparent;
+      position: relative;
+      background-color: #ffffff;
       background-repeat: no-repeat;
-      border: solid;
-      cursor: pointer;
+      width: 80%;
+      left: 20%;
       outline: none;
-      margin-bottom: 1000px;
     }
 
-  
+    .ContListAddBox {
+      width: 580px;
+      overflow: hidden;
+      position: relative;
+      width: 80%;
+      height: fit-content;
+      background-color: Transparent;
+      background-repeat: no-repeat;
+      margin-top: 100px;
+      border: hidden;
+      outline: none;
+      background: rgba(0, 0, 0, .5);
+    }
+
+
     .AddCont button {
       height: 50px;
       width: 100%;
@@ -40,6 +54,7 @@ $(document).ready(function(){
       border: none;
       cursor: pointer;
       outline: none;
+      font-size: 28px;
     }
 
     .AddCont button:hover {
@@ -140,34 +155,39 @@ $(document).ready(function(){
       }
     }
 
-    .login-box {
+    .RunCont-box {
       position: relative;
       display: none;
-      height: 540px;
+      height: 400px;
       width: 100%;
       left: 50%;
-      margin-top: 270px;
+      margin-top: 200px;
       padding: 40px;
       transform: translate(-50%, -50%);
       background: rgba(0, 0, 0, .5);
       box-sizing: border-box;
-      box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
     }
 
-    .login-box h2 {
+    .RunCont-box h2 {
       margin: 0 0 30px;
       padding: 0;
       color: #fff;
       text-align: center;
     }
 
-    .login-box .user-box {
+    .RunCont-box .inputs {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .RunCont-box .user-box {
       position: relative;
     }
 
-    .login-box .user-box input {
-      width: 100%;
+    .RunCont-box .user-box input {
       padding: 10px 0;
+      width: 90%;
       font-size: 16px;
       color: #fff;
       margin-bottom: 30px;
@@ -177,7 +197,7 @@ $(document).ready(function(){
       background: transparent;
     }
 
-    .login-box .user-box label {
+    .RunCont-box .user-box label {
       position: absolute;
       top: 0;
       left: 0;
@@ -188,25 +208,26 @@ $(document).ready(function(){
       transition: .5s;
     }
 
-    .login-box .user-box input:focus~label,
-    .login-box .user-box input:valid~label {
+    .RunCont-box .user-box input:focus~label,
+    .RunCont-box .user-box input:valid~label {
       top: -20px;
       left: 0;
       color: #03e9f4;
       font-size: 12px;
     }
-    .login-box .btn2{
+
+    .RunCont-box .btn2 {
       position: relative;
       display: inline-block;
       color: #ffffff;
       background-color: Transparent;
       border: none;
-      font-size: 13px; 
-      left: 90%;
+      font-size: 13px;
+      left: 95%;
     }
-    .login-box form button {
+
+    .RunCont-box form button {
       position: relative;
-      display: inline-block;
       padding: 10px 20px;
       color: #03e9f4;
       font-size: 16px;
@@ -214,8 +235,8 @@ $(document).ready(function(){
       text-transform: uppercase;
       overflow: hidden;
       transition: .5s;
-      margin-top: 40px;
-      left: 35%;
+      margin-top: 20px;
+      left: 45%;
       letter-spacing: 4px;
       background-color: Transparent;
       background-repeat: no-repeat;
@@ -225,7 +246,7 @@ $(document).ready(function(){
       outline: none;
     }
 
-    .login-box button:hover {
+    .RunCont-box button:hover {
       background: #03e9f4;
       color: #fff;
       border-radius: 5px;
@@ -235,12 +256,12 @@ $(document).ready(function(){
         0 0 100px #03e9f4;
     }
 
-    .login-box button span {
+    .RunCont-box button span {
       position: absolute;
       display: block;
     }
 
-    .login-box button span:nth-child(1) {
+    .RunCont-box button span:nth-child(1) {
       top: 0;
       left: -100%;
       width: 100%;
@@ -260,7 +281,7 @@ $(document).ready(function(){
       }
     }
 
-    .login-box button span:nth-child(2) {
+    .RunCont-box button span:nth-child(2) {
       top: -100%;
       right: 0;
       width: 2px;
@@ -281,7 +302,7 @@ $(document).ready(function(){
       }
     }
 
-    .login-box button span:nth-child(3) {
+    .RunCont-box button span:nth-child(3) {
       bottom: 0;
       right: -100%;
       width: 100%;
@@ -302,7 +323,7 @@ $(document).ready(function(){
       }
     }
 
-    .login-box button span:nth-child(4) {
+    .RunCont-box button span:nth-child(4) {
       bottom: -100%;
       left: 0;
       width: 2px;
@@ -337,51 +358,60 @@ $(document).ready(function(){
     }
   </style>
 </head>
-<body>
-  <div class="ContListAddBox">
-<div class="AddCont">
-    <button>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      +
-    </button>
-  </div>
 
-   <div class="login-box">
-     <button class="btn2">x</button>
-    <h2>Run container</h2>
-    <form>
-      <div class="user-box">
-        <input id="container" type="text" name="container" required="">
-        <label for="idinput">Container name:</label>
+<body>
+  <div class="MainWindow">
+    <div class="ContListAddBox">
+      <div class="AddCont">
+        <button>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          +
+        </button>
       </div>
-      <div class="user-box">
-        <input id="image" type="text" name="image" required="">
-        <label>Image:</label>
+
+      <div class="RunCont-box">
+        <button class="btn2">x</button>
+        <h2>Run container</h2>
+        <form>
+          <div class="inputs">
+            <div class="user-box">
+              <input id="container" type="text" name="container" required="">
+              <label for="idinput">Container name:</label>
+            </div>
+            <div class="user-box">
+              <input id="image" type="text" name="image" required="">
+              <label>Image:</label>
+            </div>
+            <div class="user-box">
+              <input id="command" type="text" name="command" required="">
+              <label>Command:</label>
+            </div>
+            <div class="user-box">
+              <input id="network" type="text" name="network" required="">
+              <label id="container">Network:</label>
+            </div>
+          </div>
+          <div class="user-checkbox">
+            <input class="checkbox-box" id="privileged" type="checkbox">
+            <label class="checkbox-label" for="privileged">Privileged</label>
+          </div>
+          <button>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Run
+          </button>
+        </form>
       </div>
-      <div class="user-box">
-        <input id="command" type="text" name="command" required="">
-        <label>Command:</label>
+      <div class="ContList">
+        sadsad
       </div>
-      <div class="user-box">
-        <input id="network" type="text" name="network" required="">
-        <label id="container">Network:</label>
-      </div>
-      <div class="user-checkbox">
-        <input class="checkbox-box" id="privileged" type="checkbox">
-        <label class="checkbox-label" for="privileged">Privileged</label>
-      </div>
-      <button>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Create
-      </button>
-    </form>
+    </div>
   </div>
-</div>
 </body>
+
 </html>

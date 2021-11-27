@@ -79,30 +79,42 @@
       height: auto;
       width: 100%;
       padding: 20px;
-      background: #384d54
+      background: #384d54;
       box-sizing: border-box;
     }
 
     .RunCont-box h2 {
       margin: 0 0 30px;
-      padding: 0;
       color: #fff;
       text-align: center;
+      display: block
+    }
+    
+    .RunCont-box .btn2 {
+      position: relative;
+      display: inline;
+      color: #ffffff;
+      background-color: Transparent;
+      border: none;
+      font-size: 13px;
+      left: 95%;
     }
 
     .RunCont-box .inputs {
       width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
+        
     }
 
     .RunCont-box .user-box {
       position: relative;
+      text-align: center;
     }
 
     .RunCont-box .user-box input {
       padding: 10px 0;
-      width: 80%;
+      width: 85%;
       font-size: 16px;
       color: #fff;
       margin-bottom: 30px;
@@ -115,7 +127,7 @@
     .RunCont-box .user-box label {
       position: absolute;
       top: 0;
-      left: 0;
+      left: 38px;
       padding: 10px 0;
       font-size: 16px;
       color: #fff;
@@ -126,20 +138,11 @@
     .RunCont-box .user-box input:focus~label,
     .RunCont-box .user-box input:valid~label {
       top: -20px;
-      left: 0;
       color: #0db7ed;
       font-size: 12px;
     }
 
-    .RunCont-box .btn2 {
-      position: relative;
-      display: inline-block;
-      color: #ffffff;
-      background-color: Transparent;
-      border: none;
-      font-size: 13px;
-      left: 95%;
-    }
+    
 
     .RunCont-box form button {
       position: relative;
@@ -294,7 +297,7 @@
           <div class="inputs">
             <div class="user-box">
               <input id="container" type="text" name="container" required="">
-              <label for="idinput">Container name:</label>
+              <label>Container name:</label>
             </div>
             <div class="user-box">
               <input id="image" type="text" name="image" required="">

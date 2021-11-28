@@ -43,12 +43,12 @@
       width: 100%;
       position: relative;
       display: block;
+      background-color: #384d54;
       color: #0db7ed;
       text-decoration: none;
       text-transform: uppercase;
       overflow: hidden;
       transition: .5s;
-      background-color: Transparent;
       background-repeat: no-repeat;
       border: none;
       cursor: pointer;
@@ -70,7 +70,7 @@
       display: block;
     }
 
-    
+
 
     .RunCont-box {
       position: relative;
@@ -88,7 +88,7 @@
       text-align: center;
       display: block
     }
-    
+
     .RunCont-box .btn2 {
       position: relative;
       display: inline;
@@ -103,7 +103,7 @@
       width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
-        
+
     }
 
     .RunCont-box .user-box {
@@ -141,7 +141,7 @@
       font-size: 12px;
     }
 
-    
+
 
     .RunCont-box form button {
       position: relative;
@@ -152,7 +152,7 @@
       text-transform: uppercase;
       overflow: hidden;
       transition: .5s;
-      text-align: center;  
+      text-align: center;
       margin-top: 20px;
       letter-spacing: 4px;
       background-color: Transparent;
@@ -273,11 +273,33 @@
     .checkbox-label {
       color: #ffffff;
     }
-    
-    .Container {
+
+    .ContList .MinContainer {
       width: 100%;
-      backround: #0db7ed;
-      margin-top: 5px; 
+      height: 55px;
+      background-color: #384d54;
+      margin-top: 5px;
+      cursor: pointer;
+      transition: .5s;
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+    }
+
+    .MinContainer .Name {
+      vertical-align: middle;
+    }
+
+    .MinContainer .Status {
+      vertical-align: middle;
+    }
+
+    .ContList div.MinContainer:hover {
+      background: #0db7ed;
+      color: #fff;
+      box-shadow: 0 0 5px #0db7ed,
+        0 0 25px #0db7ed,
+        0 0 50px #0db7ed,
+        0 0 100px #0db7ed;
     }
   </style>
 </head>
@@ -322,24 +344,24 @@
             <label class="checkbox-label" for="privileged">Privileged</label>
           </div>
           <div class="CenterAlignBox">
-          <button>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Run
-          </button>
-        </div>
+            <button>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              Run
+            </button>
+          </div>
         </form>
       </div>
       <div class="ContList">
-        <div class="Container"">
-           <div class="MiniContainerName"">
-             CoolCouthntt
-           </div>         
-           <div class="ContainersStatus"">
-            Wegood   
-           </div>          
+        <div class="MinContainer">
+          <div class="Name">
+            CoolCouthntt
+          </div>
+          <div class="Status">
+            Wegood
+          </div>
         </div>
       </div>
     </div>

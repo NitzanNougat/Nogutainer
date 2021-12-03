@@ -4,6 +4,7 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
+    console.log("sdsd")
     $(document).ready(function () {
       $(".btn2").click(function () {
         $(".RunCont-box").slideUp();
@@ -11,7 +12,89 @@
       $(".AddCont").click(function () {
         $(".RunCont-box").slideDown();
       });
+      $("#RefreshContlList").click(function () {
+        $(".ContList").empty()
+        var ContPropList = [
+          { name: 'CoolCont', status: 'running', id: 20055, image: 'nginx', ports: '101/tcp' },
+          { name: 'CoolCont2', status: 'running', id: 20053, image: 'apache', ports: '2096/tcp' },
+          { name: 'CoolCont3', status: 'stopped', id: 45652, image: 'nginx', ports: '10123/tcp' }
+        ];
+        ContPropList.forEach(function (Container, i) {
+          //Create MiniContainerMake(Visible)
+          jQuery("<div/>", {
+            class: "MinContainer",
+            id: "MinContainer" + i
+          }).appendTo(".ContList");
+          //Creates MiniContainer Inner divs
+          jQuery("<div/>", {
+            class: "name",
+            id: "name" + i,
+            text: Container.name
+          }).appendTo("#MinContainer" + i);
+
+          jQuery("<div/>", {
+            class: "status",
+            id: "status" + i,
+            text: Container.status
+          }).appendTo("#MinContainer" + i);
+
+          //Create MiniContainerMake(hidden)
+          jQuery("<div/>", {
+            class: "MaxContainer",
+            id: "ContList1MaxContainer" + i
+          }).appendTo(".ContList");
+          // Hide newly Created div 
+          $("#ContList1MaxContainer" + i).hide()
+
+          //Create its contents  
+
+          //Adds name
+          jQuery("<div/>", {
+            class: "name",
+            id: "name" + i,
+            text: Container.name
+          }).appendTo("#ContList1MaxContainer" + i);
+
+          //Ads status
+          jQuery("<div/>", {
+            class: "status",
+            id: "status" + i,
+            text: Container.status
+          }).appendTo("#ContList1MaxContainer" + i);
+
+          //Ads id
+          jQuery("<div/>", {
+            class: "id",
+            id: "id" + i,
+            text: Container.id
+          }).appendTo("#ContList1MaxContainer" + i);
+
+          jQuery("<div/>", {
+            class: "image",
+            id: "image" + i,
+            text: Container.image
+          }).appendTo("#ContList1MaxContainer" + i);
+
+          jQuery("<div/>", {
+            class: "ports",
+            id: "ports" + i,
+            text: Container.ports
+          }).appendTo("#ContList1MaxContainer" + i);
+
+        });
+      });
+      $(".ContList").on("click", ".MinContainer", function () {
+        console.log("[-1]")
+        $(this).slideUp();
+        $("#ContList1MaxContainer" + this.id.slice(-1)).slideDown()
+      });
+
+
+
     });
+
+
+
   </script>
   <style>
     .MainWindow {
@@ -24,6 +107,45 @@
       outline: none;
     }
 
+    .ContListButtons {
+      display: grid;
+      width: 580px;
+      margin-top: 80px;
+      grid-template-columns: repeat(5, 1fr);
+      ;
+    }
+
+    .ContListButtons button {
+      height: 50px;
+      width: 100%;
+      position: relative;
+      display: block;
+      background-color: #384d54;
+      color: #0db7ed;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      background-repeat: no-repeat;
+      border: none;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .ContListButtons button:hover {
+      background: #0db7ed;
+      color: #fff;
+      box-shadow: 0 0 5px #0db7ed,
+        0 0 25px #0db7ed,
+        0 0 50px #0db7ed,
+        0 0 100px #0db7ed;
+    }
+
+    .ContListButtons button span {
+      position: absolute;
+      display: block;
+    }
+
     .ContListAddBox {
       width: 580px;
       overflow: hidden;
@@ -32,7 +154,7 @@
       height: fit-content;
       background-color: Transparent;
       background-repeat: no-repeat;
-      margin-top: 100px;
+      margin-top: 20px;
       border: hidden;
       outline: none;
     }
@@ -285,11 +407,11 @@
       grid-template-columns: 3fr 1fr;
     }
 
-    .MinContainer .Name {
+    .MinContainer .name {
       vertical-align: middle;
     }
 
-    .MinContainer .Status {
+    .MinContainer .status {
       vertical-align: middle;
     }
 
@@ -301,11 +423,24 @@
         0 0 50px #0db7ed,
         0 0 100px #0db7ed;
     }
+
+    .ContList .MaxContainer {
+      width: 100%;
+      height: 200px;
+      background-color: #384d54;
+      margin-top: 5px;
+      transition: .5s;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
   </style>
 </head>
 
 <body>
   <div class="MainWindow">
+    <div class="ContListButtons">
+      <button id="RefreshContlList">Refresh</button>
+    </div>
     <div class="ContListAddBox">
       <div class="AddCont">
         <button>
@@ -355,14 +490,6 @@
         </form>
       </div>
       <div class="ContList">
-        <div class="MinContainer">
-          <div class="Name">
-            CoolCouthntt
-          </div>
-          <div class="Status">
-            Wegood
-          </div>
-        </div>
       </div>
     </div>
   </div>

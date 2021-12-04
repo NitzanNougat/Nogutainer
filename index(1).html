@@ -13,7 +13,10 @@
         $(".RunCont-box").slideDown();
       });
       $("#RefreshContlList").click(function () {
+        //Empties div before reforming it 
         $(".ContList").empty()
+        //Hides for dramtic effect
+        $(".ContList").hide()
         var ContPropList = [
           { name: 'CoolCont', status: 'running', id: 20055, image: 'nginx', ports: '101/tcp' },
           { name: 'CoolCont2', status: 'running', id: 20053, image: 'apache', ports: '2096/tcp' },
@@ -23,20 +26,25 @@
           //Create MiniContainerMake(Visible)
           jQuery("<div/>", {
             class: "MinContainer",
-            id: "MinContainer" + i
+            id: "ContList1MinContainer" + i
           }).appendTo(".ContList");
           //Creates MiniContainer Inner divs
           jQuery("<div/>", {
             class: "name",
             id: "name" + i,
             text: Container.name
-          }).appendTo("#MinContainer" + i);
+          }).appendTo("#ContList1MinContainer" + i);
+
+          jQuery("<div/>", {
+            class: "status-box",
+            id: "ContListMinstatus-box" + i,
+          }).appendTo("#ContList1MinContainer" + i);
 
           jQuery("<div/>", {
             class: "status",
             id: "status" + i,
             text: Container.status
-          }).appendTo("#MinContainer" + i);
+          }).appendTo("#ContListMinstatus-box" + i);
 
           //Create MiniContainerMake(hidden)
           jQuery("<div/>", {
@@ -55,12 +63,18 @@
             text: Container.name
           }).appendTo("#ContList1MaxContainer" + i);
 
-          //Ads status
+          //Ads status box
+          jQuery("<div/>", {
+            class: "status-box",
+            id: "ContListMaxstatus-box" + i,
+          }).appendTo("#ContList1MaxContainer" + i);
+
+          //adds status
           jQuery("<div/>", {
             class: "status",
             id: "status" + i,
             text: Container.status
-          }).appendTo("#ContList1MaxContainer" + i);
+          }).appendTo("#ContListMaxstatus-box" + i);
 
           //Ads id
           jQuery("<div/>", {
@@ -81,12 +95,34 @@
             text: Container.ports
           }).appendTo("#ContList1MaxContainer" + i);
 
+          jQuery("<button/>", {
+            class: "btn2",
+            text: "x"
+          }).appendTo("#ContList1MaxContainer" + i);
+
         });
+
+
+        //Slide ready div for drramatic effect
+        $(".ContList").slideDown()
       });
+
+
+
       $(".ContList").on("click", ".MinContainer", function () {
         console.log("[-1]")
-        $(this).slideUp();
-        $("#ContList1MaxContainer" + this.id.slice(-1)).slideDown()
+        var ThisMinContid = "#" + this.id
+        var ThisMaxContId = "#ContList1MaxContainer" + this.id.slice(-1)
+
+        $(ThisMinContid).slideUp(function () {
+          $(ThisMaxContId).slideDown('slow');
+        });
+        $(ThisMinContid).hide()
+        setTimeout(
+          function () {
+            $(ThisMaxContId).slideDown('slow');
+          }, 5000);
+
       });
 
 
@@ -396,6 +432,22 @@
       color: #ffffff;
     }
 
+    .status-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .status {
+      border-radius: 5px;
+      background: #008f00;
+      padding: 8px;
+      width: fit-content;
+      height: fit-content;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
     .ContList .MinContainer {
       width: 100%;
       height: 55px;
@@ -411,9 +463,6 @@
       vertical-align: middle;
     }
 
-    .MinContainer .status {
-      vertical-align: middle;
-    }
 
     .ContList div.MinContainer:hover {
       background: #0db7ed;
@@ -426,12 +475,33 @@
 
     .ContList .MaxContainer {
       width: 100%;
-      height: 200px;
-      background-color: #384d54;
+      height: 120px;
+      background-color: #0db7ed;
       margin-top: 5px;
       transition: .5s;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: 3fr 3fr 3fr 3fr 3fr 1fr
+    }
+
+    .ContList .MaxContainer .btn2 {
+      position: relative;
+      display: inline;
+      width: 7px;
+      height: 16px;
+      padding: 1px;
+      color: #ffffff;
+      background-color: Transparent;
+      border: none;
+      font-size: 13px;
+    }
+
+    .ContList .MaxContainer .btn2:hover {
+      background: #384d54;
+    }
+
+    .ManContainer> {
+      font-size: 24px;
+      text-align: center;
     }
   </style>
 </head>
